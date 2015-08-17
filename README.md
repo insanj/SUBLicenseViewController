@@ -6,6 +6,8 @@
 
 Incredibly simple license view controller for iOS. Makes it really easy to attractively present acknowledgements for open source libraries within your app. You know, the ones that come with all that 3rd party code you use? Currently supports Cocoapods as well as manual entry. Under development (a part of the Submarine project, currently closed-source).
 
+![](first.png) ![](second.png)
+
 ## Usage
 
     SUBLicenseViewController *licenseViewController = [[SUBLicenseViewController alloc] init];
