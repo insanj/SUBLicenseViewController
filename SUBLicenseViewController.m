@@ -220,10 +220,11 @@ static NSString *kSubmarineLicenseHeaderReuseIdentifier = @"SubmarineLicenseHead
     if (!licenseCell) {
         licenseCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:licenseCellReuseIdentifier];
         licenseCell.backgroundColor = [UIColor clearColor];
+        licenseCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        UIView *backgroundView = [[UIView alloc] init];
+        /*UIView *backgroundView = [[UIView alloc] init];
         backgroundView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.1];
-        licenseCell.selectedBackgroundView = backgroundView;
+        licenseCell.selectedBackgroundView = backgroundView;*/
         
         // UITextView *licenseLabel = [[UITextView alloc] init];
         UILabel *licenseLabel = [[UILabel alloc] init];
@@ -254,4 +255,9 @@ static NSString *kSubmarineLicenseHeaderReuseIdentifier = @"SubmarineLicenseHead
     return licenseCell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 @end
+
