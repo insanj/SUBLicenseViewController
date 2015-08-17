@@ -4,15 +4,21 @@
 [![License](https://img.shields.io/cocoapods/l/SUBLicenseViewController.svg?style=flat)](http://cocoadocs.org/docsets/SUBLicenseViewController)
 [![Platform](https://img.shields.io/cocoapods/p/SUBLicenseViewController.svg?style=flat)](http://cocoadocs.org/docsets/SUBLicenseViewController)
 
-Incredibly simple license view controller for iOS. Makes it really easy to attractively present acknowledgements for open source libraries within your app. You know, the ones that come with all that 3rd party code you use? Currently supports Cocoapods as well as manual entry. Under development (a part of the Submarine project, currently closed-source).
+Incredibly simple license view controller for iOS. **Makes it really easy to attractively present acknowledgements for open source libraries within your app.** You know, the ones that come with all that 3rd party code you use?
 
-![](first.png) ![](second.png)
+Currently supports Cocoapods as well as manual entry. _Under development (a part of the Submarine project, currently closed-source)._
+
+![](Screenshots/first.png) ![](Screenshots/second.png)
 
 ## Usage
 
     SUBLicenseViewController *licenseViewController = [[SUBLicenseViewController alloc] init];
     [licenseViewController addLicenseWithTitle:@"Noun Project" body:@"Roman J. Sokolov, Pencil (42830)\nVicons Design, Person (78759 & 78763)\nNicholas Menghini, Light Bulb (10784)\nHenry Ryder, Diving Helmet (120651)\nIcomatic, Collapse (18936)"];
     [self.navigationController pushViewController:licenseViewController animated:YES];
+
+SUBLicenseViewController will automatically parse and add your [Cocoapods acknowledgements files](https://github.com/CocoaPods/CocoaPods/wiki/Acknowledgements) as long as you add it to `Copy Bundle Resources` like so:
+
+![](Screenshots/instructions.jpg)
 
 
 ## Installation
