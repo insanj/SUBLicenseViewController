@@ -42,7 +42,7 @@
 
 @property (strong, nonatomic) UIColor *backgroundColor;
 
-- (void)addLicenseWithTitle:(NSString *)title body:(NSString *)body __attribute__((deprecated("use addLicense: to add one license or addLicenses: to add more than one")));
+- (void)addLicenseWithTitle:(NSString *)title body:(NSString *)body __attribute__((deprecated("use addLicenses: to add licenses")));
 - (void)addLicenses:(NSArray *)licenses; // License object should be SUBLicense
 
 @end
