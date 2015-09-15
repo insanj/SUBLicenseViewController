@@ -68,7 +68,6 @@ static NSString *kSubmarineLicenseHeaderReuseIdentifier = @"SubmarineLicenseHead
         self.tableView.backgroundColor = backgroundColor;
     }
     if (backgroundImage) {
-        NSLog(@"********* YES IMAGE HERE ");
         UIImageView *boxBackView = [[UIImageView alloc] initWithImage:backgroundImage];
         [self.tableView setBackgroundView:boxBackView];
         [self.tableView setBackgroundColor:[UIColor clearColor]];
