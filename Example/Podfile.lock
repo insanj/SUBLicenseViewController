@@ -1,0 +1,27 @@
+PODS:
+  - FLAnimatedImage (1.0.10)
+  - PINCache (2.1.2)
+  - PINRemoteImage (2.0):
+    - PINRemoteImage/FLAnimatedImage (= 2.0)
+  - PINRemoteImage/Core (2.0):
+    - PINCache (>= 2.1)
+  - PINRemoteImage/FLAnimatedImage (2.0):
+    - FLAnimatedImage (>= 1.0)
+    - PINRemoteImage/Core
+  - SUBLicenseViewController (0.1.0)
+
+DEPENDENCIES:
+  - PINRemoteImage
+  - SUBLicenseViewController (from `../`)
+
+EXTERNAL SOURCES:
+  SUBLicenseViewController:
+    :path: ../
+
+SPEC CHECKSUMS:
+  FLAnimatedImage: e16a1e1cef08e4c509b47e4acbe3923f65c16135
+  PINCache: 9e70271f1bdd60c0465b7208adcc4b6acc1fc376
+  PINRemoteImage: 23729466b9ec74fe8bc75a9a119097b5ab90864e
+  SUBLicenseViewController: d5decba3a9885c02f8330fc3d5d0fce18eea298b
+
+COCOAPODS: 0.38.2

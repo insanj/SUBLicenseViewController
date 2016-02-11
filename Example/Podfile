@@ -1,0 +1,19 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'SUBLicenseViewController_Example', :exclusive => true do
+  pod 'SUBLicenseViewController', :path => '../'
+  pod 'PINRemoteImage'
+  
+  post_install do | installer |
+      require 'fileutils'
+      FileUtils.cp_r('Pods/Target Support Files/Pods-SUBLicenseViewController_Example/Pods-SUBLicenseViewController_Example-acknowledgements.plist', 'SUBLicenseViewController/Acknowledgements.plist', :remove_destination => true)
+  end
+  
+end
+
+target 'SUBLicenseViewController_Tests', :exclusive => true do
+  pod 'SUBLicenseViewController', :path => '../'
+
+  
+end
