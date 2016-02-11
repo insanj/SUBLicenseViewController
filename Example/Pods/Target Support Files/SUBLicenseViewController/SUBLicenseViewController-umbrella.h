@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 
+#import "SUBLicense.h"
 #import "SUBLicenseViewController.h"
 
 FOUNDATION_EXPORT double SUBLicenseViewControllerVersionNumber;

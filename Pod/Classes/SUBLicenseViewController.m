@@ -8,34 +8,6 @@
 
 #import "SUBLicenseViewController.h"
 
-@interface SUBLicense : NSObject
-
-@property (strong, nonatomic) NSString *licenseTitle, *licenseBody;
-
-+ (instancetype)licenseWithTitle:(NSString *)title body:(NSString *)body;
-
-@end
-
-@implementation SUBLicense
-
-+ (instancetype)licenseWithTitle:(NSString *)title body:(NSString *)body {
-    SUBLicense *license = [[SUBLicense alloc] init];
-    license.licenseTitle = title;
-    license.licenseBody = body;
-    return license;
-}
-
-- (BOOL)isEqual:(id)object {
-    if ([object isKindOfClass:[SUBLicense class]]) {
-        return [((SUBLicense *)object).licenseTitle isEqualToString:_licenseTitle] &&
-               [((SUBLicense *)object).licenseBody  isEqualToString:_licenseBody];
-    }
-    
-    return NO;
-}
-
-@end
-
 @interface SUBLicenseViewController ()
 
 @property (strong, nonatomic) NSMutableArray *licenses, *licensesPending;
@@ -49,6 +21,7 @@
 static NSString *kSubmarineLicenseHeaderReuseIdentifier = @"SubmarineLicenseHeaderReuseIdentifier";
 
 @implementation SUBLicenseViewController
+@synthesize sectionHeaderBackgroundColor, sectionHeaderTextColor, cellTextColor, backgroundColor, backgroundImage;
 
 - (instancetype)init {
     self = [super init];
@@ -70,6 +43,19 @@ static NSString *kSubmarineLicenseHeaderReuseIdentifier = @"SubmarineLicenseHead
     }
     
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (backgroundColor) {
+        self.tableView.backgroundColor = backgroundColor;
+    }
+    if (backgroundImage) {
+        UIImageView *boxBackView = [[UIImageView alloc] initWithImage:backgroundImage];
+        [self.tableView setBackgroundView:boxBackView];
+        [self.tableView setBackgroundColor:[UIColor clearColor]];
+    }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -165,6 +151,36 @@ static NSString *kSubmarineLicenseHeaderReuseIdentifier = @"SubmarineLicenseHead
     [self.tableView reloadData];
 }
 
+- (void)addLicenses:(NSArray *)licenses {
+    [licenses enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(SUBLicense *license, NSUInteger idx, BOOL * _Nonnull stop) {
+        //
+        [_licensesPending addObject:license];
+        
+        if (!_licenses) {
+            if (_licensesSuccessfullyLoaded) {
+                _licenses = [NSMutableArray arrayWithObject:license];
+            }
+            
+            else {
+                return; // do nothing, wait until load finishes
+            }
+        }
+        
+        else {
+            if (_licensesSuccessfullyLoaded) {
+                [_licenses insertObject:license atIndex:_licensesPending.count]; // we like the 1 offset, normally there's "Acknowledgements"
+            }
+            
+            else {
+                [_licenses removeAllObjects];
+                _licenses = _licensesPending;
+            }
+        }
+        
+        [self.tableView reloadData];
+    }];
+}
+
 #pragma mark - table view
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -191,9 +207,15 @@ static NSString *kSubmarineLicenseHeaderReuseIdentifier = @"SubmarineLicenseHead
     static NSInteger licenseHeaderLabelTag = 5212125;
     if (![headerFooterView.contentView viewWithTag:licenseHeaderLabelTag]) {
         headerFooterView.contentView.backgroundColor = [UIColor clearColor];
+        if (sectionHeaderBackgroundColor) {
+            headerFooterView.contentView.backgroundColor = sectionHeaderBackgroundColor;
+        }
         
         UILabel *headerLabel = [[UILabel alloc] init];
         headerLabel.textColor = [UIColor whiteColor];
+        if (sectionHeaderTextColor) {
+            headerLabel.textColor = sectionHeaderTextColor;
+        }
         headerLabel.font = _licenseTitleFont;
         headerLabel.textAlignment = NSTextAlignmentLeft;
         headerLabel.numberOfLines = 0;
@@ -234,16 +256,25 @@ static NSString *kSubmarineLicenseHeaderReuseIdentifier = @"SubmarineLicenseHead
     if (!licenseCell) {
         licenseCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:licenseCellReuseIdentifier];
         licenseCell.backgroundColor = [UIColor clearColor];
+        if (backgroundColor) {
+            licenseCell.backgroundColor = backgroundColor;
+        }
         licenseCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
+        if (backgroundImage) {
+            licenseCell.backgroundColor = [UIColor clearColor];
+        }
         /*UIView *backgroundView = [[UIView alloc] init];
-        backgroundView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.1];
-        licenseCell.selectedBackgroundView = backgroundView;*/
+         backgroundView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.1];
+         licenseCell.selectedBackgroundView = backgroundView;*/
         
         // UITextView *licenseLabel = [[UITextView alloc] init];
         UILabel *licenseLabel = [[UILabel alloc] init];
         licenseLabel.backgroundColor = [UIColor clearColor];
         licenseLabel.textColor = [UIColor whiteColor];
+        if (cellTextColor) {
+            licenseLabel.textColor = cellTextColor;
+        }
         licenseLabel.tag = licenseCellLabelTag;
         licenseLabel.numberOfLines = 0;
         licenseLabel.font = _licenseBodyFont;
