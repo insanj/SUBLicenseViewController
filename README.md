@@ -1,9 +1,8 @@
 # SUBLicenseViewController
 
-[![CI Status](http://img.shields.io/travis/insanj/SUBLicenseViewController.svg?style=flat)](https://travis-ci.org/insanj/SUBLicenseViewController)
-[![Version](https://img.shields.io/cocoapods/v/SUBLicenseViewController.svg?style=flat)](http://cocoapods.org/pods/SUBLicenseViewController)
-[![License](https://img.shields.io/cocoapods/l/SUBLicenseViewController.svg?style=flat)](http://cocoapods.org/pods/SUBLicenseViewController)
-[![Platform](https://img.shields.io/cocoapods/p/SUBLicenseViewController.svg?style=flat)](http://cocoapods.org/pods/SUBLicenseViewController)
+[![Version](https://img.shields.io/cocoapods/v/SUBLicenseViewController.svg?style=flat)](http://cocoadocs.org/docsets/SUBLicenseViewController)
+[![License](https://img.shields.io/cocoapods/l/SUBLicenseViewController.svg?style=flat)](http://cocoadocs.org/docsets/SUBLicenseViewController)
+[![Platform](https://img.shields.io/cocoapods/p/SUBLicenseViewController.svg?style=flat)](http://cocoadocs.org/docsets/SUBLicenseViewController)
 
 Incredibly simple license view controller for iOS. **Makes it really easy to attractively present acknowledgements for open source libraries within your app.** You know, the ones that come with all that 3rd party code you use?
 
