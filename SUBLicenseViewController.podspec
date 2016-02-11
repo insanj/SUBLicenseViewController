@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "SUBLicenseViewController"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of SUBLicenseViewController."
+  s.version          = "1.0"
+  s.summary          = "Incredibly simple license view controller for iOS. Makes it really easy to attractively present acknowledgements for open source libraries within your app."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,16 +17,17 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+  Incredibly simple license view controller for iOS. Makes it really easy to attractively present acknowledgements for open source libraries within your app.
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/SUBLicenseViewController"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/insanj/SUBLicenseViewController"
+  s.screenshots      = "https://raw.githubusercontent.com/insanj/SUBLicenseViewController/master/Screenshots/first.png", "https://raw.githubusercontent.com/insanj/SUBLicenseViewController/master/Screenshots/first.png"
   s.license          = 'MIT'
-  s.author           = { "insanj" => "insanj@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/SUBLicenseViewController.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "insanj" => "insanjmail@gmail.com" }
+  s.source           = { :git => "https://github.com/insanj/SUBLicenseViewController.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/insanj'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '9.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
@@ -34,7 +35,7 @@ Pod::Spec.new do |s|
     'SUBLicenseViewController' => ['Pod/Assets/*.png']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.public_header_files = 'Pod/Classes/**/*.h'
+  s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
