@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = "SUBLicenseViewController"
   s.version          = "1.0"
-  s.summary          = "Incredibly simple license view controller for iOS. Makes it really easy to attractively present acknowledgements for open source libraries within your app."
+  s.summary          = "Incredibly simple license view controller. Makes it easy to attractively present acknowledgements for open source libraries within your app."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
