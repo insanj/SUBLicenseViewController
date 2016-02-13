@@ -13,7 +13,7 @@ Incredibly simple license view controller for iOS. **Makes it really easy to att
     SUBLicenseViewController *licenseViewController = [[SUBLicenseViewController alloc] init];
     [self.navigationController pushViewController:licenseViewController animated:YES];
 
-SUBLicenseViewController will automatically parse and add your [Cocoapods acknowledgements files](https://github.com/CocoaPods/CocoaPods/wiki/Acknowledgements) as long as you add it to `Copy Bundle Resources` like so:
+SUBLicenseViewController will automatically parse and add your [CocoaPods acknowledgements files](https://github.com/CocoaPods/CocoaPods/wiki/Acknowledgements) as long as you add it to `Copy Bundle Resources` like so:
 
 ![](Screenshots/instructions.jpg)
 
