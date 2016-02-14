@@ -17,18 +17,24 @@ SUBLicenseViewController will automatically parse and add your [CocoaPods acknow
 
 ![](Screenshots/instructions.jpg)
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+and then you can have it automatically copied every `pod install` by adding this to the bottom of your Podfile:
+
+	post_install do | installer |
+    	require 'fileutils'
+    	FileUtils.cp_r('Pods/Target Support Files/Pods-XXX/Pods-XXX-acknowledgements.plist', 'XXX/Acknowledgements.plist', :remove_destination => true)
+	end
+
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Installation
 
 SUBLicenseViewController is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
-```ruby
-pod "SUBLicenseViewController"
-```
+	pod "SUBLicenseViewController"
+
 
 ## Author
 
